@@ -1,3 +1,7 @@
+interface XIsHowPercentOfOptions {
+    allowPercentSymbol?: boolean;
+}
+
 export class Operator {
     protected num:number = 0;
 
@@ -34,15 +38,33 @@ export class Operator {
     public getPercentOf(percent:number, value:number){
         return ( percent/100 ) * value
     }
+  
 
-    public XIsHowPercentOf(fractionOfvalue:number,totalvalue:number){
-        return `${ ( fractionOfvalue * 100 ) / totalvalue }%`
+    public XIsHowPercentOf(fractionOfvalue:number,totalvalue:number, options?:XIsHowPercentOfOptions){
+        const func = ((fractionOfvalue * 100 ) / totalvalue).toFixed(2)
+        const withSymbol = `${ func }%`
+        return options?.allowPercentSymbol || options?.allowPercentSymbol === undefined ? withSymbol : parseFloat(func)
+    }
+
+    public getFactorial(num:number){
+        try{
+            if(num < 0 )  throw new Error("Erro! Fatorial recebe apenas números naturais")
+            let value = num;
+            let nextValue = num -1
+            while (nextValue) {
+                value *= nextValue  
+                nextValue--
+            }
+            return value
+        } catch (error){
+            console.log(error)
+        }
     }
 }
 
 
 
-// realizar operações basicas
+// realizar operações basicas check
 // operações monetarias
 // converter em moedas especificas
 // realizar conjunto de operações ao mesmo tempo
