@@ -12,5 +12,7 @@ console.log(`Porcentagem: ${ operator.getPercentOf(25, 11200) }`)
 console.log(`Porcentagem: ${ operator.XIsHowPercentOf(2, 9) }`)
 
 console.log(`fatorial: ${ operator.getFactorial(10) }`)
-
-
+console.log(`soma dinheiro: ${ operator.CurrencySum(['1,40',3.54],{
+    countryCurrency: 'pt-BR',
+    currency: 'BRL'
+}) }`)

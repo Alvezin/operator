@@ -1,17 +1,28 @@
+import { MoneyOperators } from "./MoneyOperator";
+
 interface XIsHowPercentOfOptions {
     allowPercentSymbol?: boolean;
 }
 
-export class Operator {
+interface currencyOpt {
+    countryCurrency: string;
+    currency:string;
+}
+
+export class Operator extends MoneyOperators {
     protected num:number = 0;
 
-
+    
     public sum(...numbers:number[]){
         return numbers.reduce((num:number, acc:number) => {
             return num + acc
         },0)
     }
 
+    public CurrencySum([...numbers]:(number | string)[], options:currencyOpt) {
+        const finalSum = this.sum(...this.currencyToNumber(...numbers))
+        return this.NumberToCurrency(finalSum, options)
+    }
 
     public subtract(num1:number, ...numbers:number[]){
         let acc = num1
@@ -21,7 +32,7 @@ export class Operator {
         return acc
     }
 
-    public multiply(...numbers:number[]){
+    public  multiply(...numbers:number[]){
         return numbers.reduce((num:number, acc:number)=>{
             return num * acc
         },1)
@@ -64,7 +75,7 @@ export class Operator {
 
 
 
-// realizar operações basicas check
+// realizar operações basicas ---------------------- :check
 // operações monetarias
 // converter em moedas especificas
 // realizar conjunto de operações ao mesmo tempo
