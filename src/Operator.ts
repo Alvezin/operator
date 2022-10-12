@@ -34,8 +34,8 @@ export class Operator extends MoneyOperators {
 
     public CurrencySubtract([...numbers]:(number | string)[], options:currencyOpt) {
         const list = this.currencyToNumber(...numbers)
-        const finalSum = this.subtract(list[0], ...list.splice(1))
-        return this.NumberToCurrency(finalSum, options)
+        const finalSubtract = this.subtract(list[0], ...list.splice(1))
+        return this.NumberToCurrency(finalSubtract, options)
     }
 
     public  multiply(...numbers:number[]){
@@ -45,8 +45,8 @@ export class Operator extends MoneyOperators {
     }
 
     public CurrencyMultiply([...numbers]:(number | string)[], options:currencyOpt) {
-        const finalSum = this.multiply(...this.currencyToNumber(...numbers))
-        return this.NumberToCurrency(finalSum, options)
+        const finalMultiply = this.multiply(...this.currencyToNumber(...numbers))
+        return this.NumberToCurrency(finalMultiply, options)
     }
 
 
@@ -64,20 +64,27 @@ export class Operator extends MoneyOperators {
   
 
     public XIsHowPercentOf(fractionOfvalue:number,totalvalue:number, options?:XIsHowPercentOfOptions){
+        
         const func = ((fractionOfvalue * 100 ) / totalvalue).toFixed(2)
         const withSymbol = `${ func }%`
-        return options?.allowPercentSymbol || options?.allowPercentSymbol === undefined ? withSymbol : parseFloat(func)
+        return options?.allowPercentSymbol || options?.allowPercentSymbol === undefined ? 
+            withSymbol : 
+            parseFloat(func)
+        ;
     }
 
     public getFactorial(num:number){
         try{
             if(num < 0 )  throw new Error("Erro! Fatorial recebe apenas números naturais")
+            
             let value = num;
             let nextValue = num -1
+
             while (nextValue) {
                 value *= nextValue  
                 nextValue--
             }
+
             return value
         } catch (error){
             console.log(error)
