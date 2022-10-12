@@ -19,7 +19,7 @@ export class Operator extends MoneyOperators {
         },0)
     }
 
-    public CurrencySum([...numbers]:(number | string)[], options:currencyOpt) {
+    public currencySum([...numbers]:(number | string)[], options:currencyOpt) {
         const finalSum = this.sum(...this.currencyToNumber(...numbers))
         return this.NumberToCurrency(finalSum, options)
     }
@@ -32,7 +32,7 @@ export class Operator extends MoneyOperators {
         return acc
     }
 
-    public CurrencySubtract([...numbers]:(number | string)[], options:currencyOpt) {
+    public currencySubtract([...numbers]:(number | string)[], options:currencyOpt) {
         const list = this.currencyToNumber(...numbers)
         const finalSubtract = this.subtract(list[0], ...list.splice(1))
         return this.NumberToCurrency(finalSubtract, options)
@@ -44,7 +44,7 @@ export class Operator extends MoneyOperators {
         },1)
     }
 
-    public CurrencyMultiply([...numbers]:(number | string)[], options:currencyOpt) {
+    public currencyMultiply([...numbers]:(number | string)[], options:currencyOpt) {
         const finalMultiply = this.multiply(...this.currencyToNumber(...numbers))
         return this.NumberToCurrency(finalMultiply, options)
     }
@@ -56,6 +56,12 @@ export class Operator extends MoneyOperators {
             acc /= numbers[index]            
         }
         return acc
+    }
+
+    public currencyDivide([...numbers]:(number | string)[], options:currencyOpt){
+        const list = this.currencyToNumber(...numbers)
+        const finalDivide = this.divide(list[0],...list.splice(1))
+        return this.NumberToCurrency(finalDivide, options)
     }
 
     public getPercentOf(percent:number, value:number){
