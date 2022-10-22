@@ -76,12 +76,29 @@ function getFactorial(num:number){
     }
 }
 
+/**
+ * 
+ * @param value valor que será potenciado
+ * @param power vezes que o valor será potenciado
+ * @returns o 'value' multiplicado por ele mesmo 'power' vezes
+ */
+function getPotentiation(value:number, power:number){
+    let loopCount = power
+    let result = value
+    while (loopCount > 1) {
+        result *= value        
+        loopCount--
+    }
+    return result
+}
+
 export default {
     sum,
     subtract,
     multiply,
     divide,
     getFactorial,
+    getPotentiation,
 }
 
 // realizar operações basicas ---------------------- :check

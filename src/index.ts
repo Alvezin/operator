@@ -8,6 +8,7 @@ export default {
     multiply: operator.multiply,
     divide: operator.divide,
     getfactorial: operator.getFactorial,
+    getPotentiation: operator.getPotentiation,
 
 
     currencySum: moneyOperator.currencySum,
@@ -20,9 +21,8 @@ export default {
     
     getPercentOf: percentageOperator.getPercentOf,
     XIsHowPercentOf: percentageOperator.XIsHowPercentOf,
+    getSimpleInterest: percentageOperator.getSimpleInterest,
+    compoundInterest: percentageOperator.getCompoundInterest,
 }
 
-console.log(moneyOperator.currencyDivide([3.00,2],{
-    countryCurrency: 'pt-BR',
-    currency: 'BRL'
-}))
+console.log(percentageOperator.getCompoundInterest(100, 20, 3))
