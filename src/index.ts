@@ -17,6 +17,7 @@ export default {
     currencyToNumber: moneyOperator.currencyToNumber,
     numberToCurrency: moneyOperator.numberToCurrency,
 
+    
     getPercentOf: percentageOperator.getPercentOf,
     XIsHowPercentOf: percentageOperator.XIsHowPercentOf,
 }
