@@ -1,5 +1,7 @@
-import { Operator } from "./Operator";
+import operator from "./Operator"
+import MoneyOperator from "./MoneyOperator"
 
-
-const operator = new Operator()
-
+console.log(MoneyOperator.numberToCurrency([2.00,50.45],{
+    countryCurrency: 'pt-BR',
+    currency: 'BRL'
+}))
