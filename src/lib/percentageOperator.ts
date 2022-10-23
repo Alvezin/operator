@@ -1,5 +1,5 @@
-import moneyOperator from './MoneyOperator'
-import operator from './Operator'
+import * as moneyOperator from './MoneyOperator'
+import * as operator from './Operator'
 
 interface XIsHowPercentOfOptions {
     allowPercentSymbol?: boolean;
@@ -81,7 +81,7 @@ function getCompoundInterest(capital:number, interestRate:number, time:number, o
     return (result - capital).toFixed(2)
 }   
 
-export default {
+export {
     getPercentOf,
     XIsHowPercentOf,
     getSimpleInterest,

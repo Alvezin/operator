@@ -1,12 +1,15 @@
 {
-  "name": "operator",
+  "name": "operate.js",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.ts",
+  "description": "Do operations fast and simple with operatejs",
+  "main": "dist/index.js",
+  "files": ["/dist"],
   "scripts": {
-    "start":"nodemon src/index.ts",
+    "start":"nodemon ./src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Gabriel Alves dos Santos",
-  "license": "ISC"
+  "license": "ISC",
+  "types": "dist/index.d.ts",
+  "homepage": "https://github.com/Alvezin/operator"
 }

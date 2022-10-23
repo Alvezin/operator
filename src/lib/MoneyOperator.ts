@@ -1,4 +1,4 @@
-import operator from './Operator'
+import * as operator from './Operator'
 
 interface currencyOpt {
     countryCurrency: string;
@@ -100,7 +100,7 @@ function currencyDivide(numbers:(number | string)[], options:currencyOpt){
 }
 
 
-export default {
+export {
     currencyToNumber,
     numberToCurrency,
     currencySum,

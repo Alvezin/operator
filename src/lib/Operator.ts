@@ -92,7 +92,7 @@ function getPotentiation(value:number, power:number){
     return result
 }
 
-export default {
+export {
     sum,
     subtract,
     multiply,
